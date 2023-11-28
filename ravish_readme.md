@@ -42,3 +42,19 @@ Write the code to create files and directory structure and execute template.py
 ```bash
   524  python template.py
 ```
+
+Copy winequality.csv to data_given folder then git and dvc init and push
+
+```bash
+  528  git init
+  529  dvc init
+  530  dvc add data_given/.gitignore
+  531  dvc add data_given/winequality.csv
+  532  git add .
+  533  git commit -m "First Commit"
+  534  git branch -M main
+  535  git remote add origin https://github.com/ravisharma1702/mlops_simple_demo.git
+  536  git branch -M main
+  537  git push -u origin main
+```
+
