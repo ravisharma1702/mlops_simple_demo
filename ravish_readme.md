@@ -58,3 +58,9 @@ Copy winequality.csv to data_given folder then git and dvc init and push
   537  git push -u origin main
 ```
 
+```
+Update params.yaml
+
+git add . && git commit -m "added params.yaml"
+git push -u origin main
+```
