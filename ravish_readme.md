@@ -64,3 +64,28 @@ Update params.yaml
 git add . && git commit -m "added params.yaml"
 git push -u origin main
 ```
+
+```
+create get_data.py
+create load_data.py
+```
+
+```
+Update dvc.yaml
+
+stages :
+  load_data :
+    cmd : python src/load_data.py --config=params.yaml
+    deps :
+      - src/get_data.py
+      - src/lead_data.py
+      - data_given/winequality.csv
+    outs:
+      - data/raw/winequality.csv
+```
+
+```
+Below will run the load_data.py and create the target csv file in the raw folder
+
+dvc repro
+```
