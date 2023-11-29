@@ -88,4 +88,7 @@ stages :
 Below will run the load_data.py and create the target csv file in the raw folder
 
 dvc repro
+
+git add . && git commit -m "added params.yaml"
+git push -u origin main
 ```
