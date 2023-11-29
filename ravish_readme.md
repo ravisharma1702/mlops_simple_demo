@@ -117,3 +117,15 @@ Commit new code
   565  git add . && git commit -m "Added split_data.py to prepare test and train data"
   566  git push -u origin main
 ```
+
+Create train_and_evaluate.py, write code and execute pipeline
+```
+  570  touch src/train_and_evaluate.py
+  574  dvc repro
+```
+
+Commit new code
+```
+  565  git add . && git commit -m "Added train_and_evaluate.py to tarin and evaluare the model"
+  566  git push -u origin main
+```

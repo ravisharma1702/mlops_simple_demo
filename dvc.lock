@@ -40,3 +40,22 @@ stages:
       hash: md5
       md5: 4bccf4d668cdc60115de42ba74d416ab
       size: 73633
+  train_and_evaluate:
+    cmd: python src/train_and_evaluate.py  --config=params.yaml
+    deps:
+    - path: data/processed/test_winequality.csv
+      hash: md5
+      md5: 01718da3bd6e206060ed00667ca1a389
+      size: 18510
+    - path: data/processed/train_winequality.csv
+      hash: md5
+      md5: 4bccf4d668cdc60115de42ba74d416ab
+      size: 73633
+    - path: src/train_and_evaluate.py
+      hash: md5
+      md5: 3431a96f534e2ec05da95efc302400ca
+      size: 1726
+    params:
+      params.yaml:
+        estimators.ElasticNet.params.alpha: 0.88
+        estimators.ElasticNet.params.l1_ratio: 0.11
