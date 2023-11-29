@@ -92,3 +92,28 @@ dvc repro
 git add . && git commit -m "added params.yaml"
 git push -u origin main
 ```
+
+Update dvc.yaml
+
+```
+  split_data :
+    cmd : python src/split_data.py --config=params.yaml
+    deps :
+      - src/split_data.py
+      - data/raw/winequality.csv
+    outs :
+      - data/processed/train_winequality.csv
+      - data/processed/test_winequality.csv
+```
+
+Create split_data.py, write code and execute pipeline
+```
+  562  touch src/split_data.py
+  563  dvc repro
+```
+
+Commit new code
+```
+  565  git add . && git commit -m "Added split_data.py to prepare test and train data"
+  566  git push -u origin main
+```
