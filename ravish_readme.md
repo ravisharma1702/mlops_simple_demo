@@ -118,6 +118,26 @@ Commit new code
   566  git push -u origin main
 ```
 
+Update dvc.yaml
+```
+  train_and_evaluate :
+    cmd : python src/train_and_evaluate.py  --config=params.yaml
+    deps :
+      - data/processed/train_winequality.csv
+      - data/processed/test_winequality.csv
+      - src/train_and_evaluate.py
+    params :
+      - estimators.ElasticNet.params.alpha
+      - estimators.ElasticNet.params.l1_ratio
+    metrics :
+      - report/scores.json :
+          cache : false
+      - report/params.json :
+          cache : false
+    outs :
+      - saved_models/model.joblib
+```
+
 Create train_and_evaluate.py, write code and execute pipeline
 ```
   570  touch src/train_and_evaluate.py
@@ -128,4 +148,42 @@ Commit new code
 ```
   565  git add . && git commit -m "Added train_and_evaluate.py to tarin and evaluare the model"
   566  git push -u origin main
+```
+
+Add code to generate reports and tracker
+```
+  584  mkdir report
+  585  touch report/params.json
+  586  touch report/scores.json
+  587  dvc repro
+  593  git add . && git commit -m "Updated train_and_evaluate to generate reports and add tracker"
+  594  git push -u origin main
+
+Above "dvc repro" command will generate the scores. Update the alpha and l1_scores in params.yaml and reexecute "dvc repro" command then execute below commands to see the difference in results:
+  590  dvc params diff
+  591  dvc metrics show
+  592  dvc metrics diff
+  593  git add . && git commit -m "Updated alpha and l1_ratio params and reran the model"
+  594  git push -u origin main
+```
+
+Configuring and running tests
+```
+  596  touch tox.ini - write content
+  597  mkdir tests
+  598  touch tests/conftest.py tests/test_config.py
+  599  touch tests/__init__.py
+  600  pytest -v
+  602  tox
+```
+
+Preparing distribution
+```
+  603  touch setup.py - write the setup code
+  604  pip install -e .
+  606  freeze
+  607  pip freeze
+  608  python setup.py sdist bdist_wheel
+  593  git add . && git commit -m "Added Test Setup and Created Distribution"
+  594  git push -u origin main
 ```
