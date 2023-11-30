@@ -223,3 +223,21 @@ Run tox command
 ```bash
 tox
 ```
+
+Create Prediction Webapp
+```bash
+  638  mkdir prediction_service
+  639  mkdir -p prediction_service/model
+  640  mkdir webapp
+  641  touch app.py
+  642  touch prediction_service/__init__.py
+  643  touch prediction_service/prediction.py
+  644  mkdir -p webapp/static/script
+  646  mkdir -p webapp/static/css
+  645  touch webapp/static/css/main.css
+  647  touch webapp/static/script/index.js
+  651  mkdir webapp/templates
+  652  touch webapp/templates/index.html
+  654  touch webapp/templates/404.html
+  655  touch webapp/templates/base.html
+```
