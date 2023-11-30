@@ -29,3 +29,7 @@ reports :
   scores : report/scores.json
 
 webapp_model_dir : prediction_service/model/model.joblib
+
+precit_request_file: predict_demo_request.json
+
+precition_service: http://localhost:5000

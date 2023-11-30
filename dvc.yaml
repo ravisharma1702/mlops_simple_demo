@@ -33,3 +33,9 @@ stages :
           cache : false
     outs :
       - saved_models/model.joblib
+  
+  predict_demo:
+    cmd: python src/predict_demo.py --config=params.yaml
+    deps:
+      - src/predict_demo.py
+      - predict_demo_request.json

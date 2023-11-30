@@ -72,3 +72,14 @@ stages:
       hash: md5
       md5: a11e0fa22e92f928afe99c25e7112330
       size: 1263
+  predict_demo:
+    cmd: python src/predict_demo.py --config=params.yaml
+    deps:
+    - path: predict_demo_request.json
+      hash: md5
+      md5: fe28f9d02904b744da2007d2cc1aa78e
+      size: 272
+    - path: src/predict_demo.py
+      hash: md5
+      md5: d8c99b31fa7dca17ef117e63f792f0d3
+      size: 783
