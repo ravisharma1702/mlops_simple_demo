@@ -187,39 +187,3 @@ Preparing distribution
   593  git add . && git commit -m "Added Test Setup and Created Distribution"
   594  git push -u origin main
 ```
-
-Update test_config.py to add new test case
-```python
-class NotInRange(Exception) :
-    def __init__(self, message="Value not in given range - by Oracle India") :
-        self.message = message
-        super().__init__(self.message)
-
-def test_generic1() :
-    a=50
-    with pytest.raises(NotInRange) :
-        if a not in range(10,20) :
-            raise NotInRange
-```
-
-Run pytest to test the changes
-```bash
-pytest -v
-```
-
-Linting using flake8 - Update tox.ini
-```ini
-commands =
-    #Stop the build if there are python syntax errors or undefined names
-    flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-
-    #Exit zero treats all errors as warnings. The GitHub editor is 127 characters wide
-    flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-
-    pytest -v
-```
-
-Run tox command
-```bash
-tox
-```
