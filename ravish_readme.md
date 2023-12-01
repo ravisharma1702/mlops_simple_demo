@@ -249,6 +249,17 @@ ML Flow
   203  mlflow
   204  mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./artifacts --host 0.0.0.0 -p 1234
 
-  git add . && git commit -m "mlflow ADDED" && git push origin main
+  git add . && git commit -m "ML Flow Added" && git push -u origin main
   205  history
+```
+
+Log Production Model
+
+Write the code for log_production_model.py
+Update dvc.yaml to add log_production_model stage
+Bash commands:
+```bash
+  dvc repro
+  mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./artifacts --host 0.0.0.0 -p 1234
+  git add . && git commit -m "Added log_production_model.py module" && git push -u origin main
 ```
