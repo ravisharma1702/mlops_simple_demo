@@ -26,16 +26,21 @@ stages :
     params :
       - estimators.ElasticNet.params.alpha
       - estimators.ElasticNet.params.l1_ratio
-    metrics :
-      - report/scores.json :
-          cache : false
-      - report/params.json :
-          cache : false
-    outs :
-      - saved_models/model.joblib
+  #   metrics :
+  #     - report/scores.json :
+  #         cache : false
+  #     - report/params.json :
+  #         cache : false
+  #   outs :
+  #     - saved_models/model.joblib
   
-  predict_demo:
-    cmd: python src/predict_demo.py --config=params.yaml
-    deps:
-      - src/predict_demo.py
-      - predict_demo_request.json
+  # predict_demo:
+  #   cmd: python src/predict_demo.py --config=params.yaml
+  #   deps:
+  #     - src/predict_demo.py
+  #     - predict_demo_request.json
+
+  # log_production_model:
+  #   cmd: python src/log_production_model.py --config=params.yaml
+  #   deps:
+  #     - src/log_production_model.py
